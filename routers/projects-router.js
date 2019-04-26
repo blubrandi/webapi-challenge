@@ -75,4 +75,18 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// - DELETE remove a post by ID
+
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  projects
+    .remove(id)
+    .then(project => {
+      res.json({ message: "Your project has been removed" });
+    })
+    .catch(error => {
+      res.status(500).json({ error: error, message: "Cannot remove project" });
+    });
+});
+
 module.exports = router;
