@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+  Two things I learned about Express this week is that Express is a framework for Node.js. (Like React for your backend). I also learned that Express is just a Node.js module.
+
 - [ ] Describe Middleware?
+
+  Express middleware is used to add features to Express, such as route handlers. Express middleware is compatible with connect middleware. There are three types of middleware: built-in, 3rd party, and custom - which is written by the developer.
 
 - [ ] Describe a Resource?
 
+  A resource is anything in an API that can be managed by a set of endpoints.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+  An API can return HTTP Status codes to let us know if a request was successful. We can also use HTTP requests to demonstrate that a request failed.
+
 - [ ] How can we partition our application into sub-applications?
+
+  We can use routers/routes to partition our app into sub-apps.
 
 ## Project Setup
 
@@ -73,8 +83,8 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
-- [ ] Retrieve the list of actions for a project.
+- [x] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
+- [x] Retrieve the list of actions for a project.
 
 ### Database Schemas
 
