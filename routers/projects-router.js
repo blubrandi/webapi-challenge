@@ -5,6 +5,7 @@ const actions = require("../data/helpers/actionModel");
 
 const router = express.Router();
 
+// GET all posts
 router.get("/", (req, res) => {
   projects
     .get()
@@ -19,13 +20,14 @@ router.get("/", (req, res) => {
     });
 });
 
+//GET post by ID
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   projects
     .get(id)
     .then(project => {
       if (project === 0) {
-        return res(404).json({
+        res(404).json({
           message:
             "Ooops!  Something went wrong.  We cannot find that post.  Please try again"
         });
@@ -36,6 +38,22 @@ router.get("/:id", (req, res) => {
       res.status(500).json({
         error: error,
         message: "Something went terribly wrong trying to get this project."
+      });
+    });
+});
+
+//POST add project
+router.post("/", (req, res) => {
+  const { name, description } = req.body;
+  projects
+    .insert({ name, description })
+    .then(project => {
+      res.json(project);
+    })
+    .catch(error => {
+      res.status(500).json({
+        error: error,
+        message: "Cannot add project.  Please try again."
       });
     });
 });
