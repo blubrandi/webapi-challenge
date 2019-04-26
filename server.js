@@ -2,6 +2,9 @@ const express = require("express");
 
 const server = express();
 
+const projectsRouter = require("./routers/projects-router");
+const actionsRouter = require("./routers/actions-router");
+
 server.use(express.json());
 
 server.get("/", (req, res) => {
